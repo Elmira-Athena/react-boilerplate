@@ -1,23 +1,31 @@
-import Header from '@/components/header-nav/header-nav'
-import { FeaturesSection } from '@/pages/home/components/features-section'
-import { FooterSection } from '@/pages/home/components/footer-section'
-import { GettingStartedSection } from '@/pages/home/components/getting-started-section'
-import { HeroSection } from '@/pages/home/components/hero-section'
-import { TechStackSection } from '@/pages/home/components/tech-stack-section'
+import { useState } from 'react'
+
+import { MotionConfig } from 'framer-motion'
+
+import { AWS_PLANS } from '@/_mocks/aws-landing.data'
+import { AwsContactFooter } from '@/pages/home/components/aws-contact-footer'
+import { AwsGlobalStories } from '@/pages/home/components/aws-global-stories'
+import { AwsHero } from '@/pages/home/components/aws-hero'
+import { AwsNavbar } from '@/pages/home/components/aws-navbar'
+import { AwsPricingFaq } from '@/pages/home/components/aws-pricing-faq'
+import { AwsServices } from '@/pages/home/components/aws-services'
 
 const HomePage = () => {
-  return (
-    <div className='min-h-screen bg-white dark:bg-gray-900'>
-      <Header />
-      <main>
-        <HeroSection />
-        <FeaturesSection />
-        <TechStackSection />
-        <GettingStartedSection />
-      </main>
+  const [selectedPlan, setSelectedPlan] = useState(AWS_PLANS[1].name)
 
-      <FooterSection />
-    </div>
+  return (
+    <MotionConfig reducedMotion='user'>
+      <div className='min-h-screen bg-white dark:bg-[#0F141A] text-[#0F141A] dark:text-slate-100'>
+        <AwsNavbar />
+        <main>
+          <AwsHero />
+          <AwsServices />
+          <AwsGlobalStories />
+          <AwsPricingFaq onSelectPlan={setSelectedPlan} />
+          <AwsContactFooter selectedPlan={selectedPlan} />
+        </main>
+      </div>
+    </MotionConfig>
   )
 }
 

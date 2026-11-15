@@ -21,8 +21,21 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+code,
+pre,
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
 }
 /* box shadown */
 .box-shadow {
