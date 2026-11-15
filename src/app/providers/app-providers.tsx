@@ -20,7 +20,7 @@ const AppProviders = ({ children }: AppProvidersProps) => {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback} onReset={handleReload}>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ThemeProvider defaultTheme='system' storageKey='vite-ui-theme'>
           <QueryProvider>
             <ToastContainer className='rounded-lg' transition={Flip} />
